@@ -381,9 +381,7 @@ def _is_table_markup_line(line: str) -> bool:
     if stripped.startswith("+") and set(stripped.rstrip()) <= {"+", "-", "=", " "}:
         return True
     # rST simple table header: =====  =====
-    if stripped.startswith("=") and set(stripped.rstrip()) <= {"=", " "}:
-        return True
-    return False
+    return stripped.startswith("=") and set(stripped.rstrip()) <= {"=", " "}
 
 
 def _fold_table_caption_continuation(
